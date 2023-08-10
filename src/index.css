@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap");
+
+:root {
+  --title-size: 30px;
+  --padding-pages: 50px 110px;
+
+  /* Fonts */
+  --rubik: "Rubik", sans-serif;
+  --poppins: "Poppins", sans-serif;
+
+  /* colors */
+  --color-primary: #ffba33;
+  --color-secondary: #6a4029;
+  --color-header: #4f5665;
+  --color-select-header: #6a4029;
+  --color-footer: #f8f8f8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #423f3e;
+}
+
+.icon {
+  position: relative !important;
+  margin: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+}
