@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE = import.meta.env.VITE_APP_HOSTDEPLOY;
+console.log("BASE : ", BASE);
 
 export const loginApi = (body) => {
   const url = BASE + "/auth/login";
