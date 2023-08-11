@@ -76,7 +76,7 @@ function NavbarPrivate() {
   };
 
   useEffect(() => {
-    if (photo.length !== 0) return setPhotoProfile(photo);
+    if (photo !== null && photo.length !== 0) return setPhotoProfile(photo);
     return setPhotoProfile(photoDefault);
   }, [photo]);
 

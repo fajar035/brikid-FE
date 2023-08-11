@@ -48,7 +48,7 @@ const authReducer = (prevState = initialState, action) => {
       };
 
     case updateImageUser.concat("_", Fulfilled): {
-      const newPhoto = action.payload.data.result.photo;
+      const newPhoto = action.payload.data.photo;
 
       var userData = {
         ...prevState.userData,
@@ -72,9 +72,8 @@ const authReducer = (prevState = initialState, action) => {
       const data = action.payload.data;
 
       var userData = {
-        token: data.result.token,
-        photo: data.result.photo,
-        role: data.result.role,
+        token: data.token,
+        photo: data.photo,
         expired: false,
       };
       return {

@@ -25,7 +25,7 @@ function Navbar() {
     <nav className={styles.nav}>
       <div className={styles["nav_logo"]}>
         <img src={logo} alt="logo" />
-        <p className={styles["nav_title"]}>Coffee Shop</p>
+        <p className={styles["nav_title"]}>Kelontong Shop</p>
       </div>
 
       <ul className={`${styles["menu"]} ${isOpen ? styles.open : ""}`}>

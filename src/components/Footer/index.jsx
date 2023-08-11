@@ -3,14 +3,31 @@ import logo from "../../assets/icons/logo.svg";
 import IFacebook from "../../assets/icons/iFb.svg";
 import ITwitter from "../../assets/icons/iTwitter.svg";
 import iInstagram from "../../assets/icons/iInstagram.svg";
+import { getAllCategoryApi } from "../../utils/https/category";
+import { useEffect, useState } from "react";
 
 function index() {
+  const [category, setCategory] = useState([]);
+
+  const getCategory = async () => {
+    try {
+      const res = await getAllCategoryApi();
+      setCategory(res.data.result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+
   return (
     <section className={styles["footer"]}>
       <div className={styles["footer_intro"]}>
         <div className={styles["logo"]}>
           <img src={logo} alt="logo" />
-          <p>Coffee Shop</p>
+          <p>Kelontong Shop</p>
         </div>
 
         <p className={styles.description}>
@@ -29,12 +46,9 @@ function index() {
       <div className={styles["footer_menu"]}>
         <ul className={styles.menu}>
           <li>Product</li>
-          <li>Product</li>
-          <li>Product</li>
-          <li>Product</li>
-          <li>Product</li>
-          <li>Product</li>
-          <li>Product</li>
+          {category?.map((item, idx) => (
+            <li key={idx}>{item.name}</li>
+          ))}
         </ul>
 
         <ul className={styles.menu}>
