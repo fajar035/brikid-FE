@@ -1,10 +1,9 @@
 import axios from "axios";
 
-// const host = process.env.REACT_APP_HOSTDEPLOY;
-const host = "https://brikid-api.vercel.app";
+const BASE = import.meta.env.VITE_APP_HOSTDEPLOY;
 
 export const getAllCategoryApi = () => {
-  const url = `${host}/category`;
+  const url = `${BASE}/category`;
 
   return axios.get(url);
 };

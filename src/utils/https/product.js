@@ -1,10 +1,8 @@
 import axios from "axios";
 import { encodeQueryData } from "../helpers/urlParams";
-
+const BASE = import.meta.env.VITE_APP_HOSTDEPLOY;
 export const getAllProducts = (params) => {
-  const url = `${process.env.REACT_APP_HOSTDEPLOY}/products?${encodeQueryData(
-    params
-  )}`;
+  const url = `${BASE}/products?${encodeQueryData(params)}`;
 
   return axios.get(url);
 };
