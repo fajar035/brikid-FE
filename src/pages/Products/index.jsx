@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import CategoryMenu from "../../components/MenuCategory";
-import Pagination from "../../components/Pagination";
 import Card from "../../components/Card";
 import { getAllProductsApi } from "../../utils/https/product";
 import { useCallback, useEffect, useState } from "react";
