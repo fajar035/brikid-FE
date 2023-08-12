@@ -9,6 +9,7 @@ export const ACTION_STRING = {
   refreshToken: "REFRESH_TOKEN",
   onLoading: "LOADING_ON",
   offLoading: "LOADING_OFF",
+  dataCategory: "GET_CATEGORY",
 
   pending: "_PENDING",
   fulfilled: "_FULFILLED",

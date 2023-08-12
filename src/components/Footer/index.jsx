@@ -3,24 +3,10 @@ import logo from "../../assets/icons/logo.svg";
 import IFacebook from "../../assets/icons/iFb.svg";
 import ITwitter from "../../assets/icons/iTwitter.svg";
 import iInstagram from "../../assets/icons/iInstagram.svg";
-import { getAllCategoryApi } from "../../utils/https/category";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function index() {
-  const [category, setCategory] = useState([]);
-
-  const getCategory = async () => {
-    try {
-      const res = await getAllCategoryApi();
-      setCategory(res.data.result);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    getCategory();
-  }, []);
+  const category = useSelector((state) => state.category.data);
 
   return (
     <section className={styles["footer"]}>

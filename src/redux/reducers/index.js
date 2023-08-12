@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 import authReducer from "./auth";
 import loadingReducer from "./loading";
+import categoryReducer from "./category";
 import storage from "redux-persist/lib/storage";
 
 const appReducers = combineReducers({
   auth: authReducer,
   loading: loadingReducer,
+  category: categoryReducer,
 });
 
 const rootReducer = (state, action) => {
