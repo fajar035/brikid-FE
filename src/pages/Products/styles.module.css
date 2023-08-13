@@ -11,13 +11,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
   flex-wrap: wrap;
+}
+
+.wrapper-btn {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-pages);
+}
+
+.wrapper-btn button {
+  width: 90%;
+  height: 50px;
+  background-color: rgba(106, 64, 41, 1);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--poppins);
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
 }
 
 @media screen and (max-width: 450px) {
   .products_wrapper {
     padding: 50px 0;
+    gap: 0;
   }
 }
 

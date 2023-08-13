@@ -6,6 +6,8 @@ import Register from "./pages/Register";
 import Products from "./pages/Products";
 import Profile from "./pages/Profile/";
 import Home from "./pages/Home";
+import DetailProducts from "./pages/DetailProduct";
+import AddProduct from "./pages/AddProduct";
 
 function MainRouter() {
   return (
@@ -18,6 +20,8 @@ function MainRouter() {
           <Route element={<Layout />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/product/:id" element={<DetailProducts />} />
+            <Route path="/product/add-product" element={<AddProduct />} />
           </Route>
         </Routes>
       </ScrollToTop>

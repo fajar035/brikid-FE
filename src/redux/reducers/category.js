@@ -11,7 +11,6 @@ const initialstate = {
 const categoryReducer = (prevState = initialstate, action) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
   const { dataCategory } = ACTION_STRING;
-  console.log("ACTION : ", action.type);
 
   switch (action.type) {
     case dataCategory.concat("_", Pending):

@@ -1,0 +1,39 @@
+.skeleton {
+  width: 100%;
+  height: fit-content;
+  padding: var(--padding-pages);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skeleton_card {
+  width: 150px;
+  height: 250px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation: skeleton-loading 0.5s linear infinite alternate;
+  margin: 30px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .skeleton {
+    padding: 50px 0;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .skeleton {
+    justify-content: space-around;
+  }
+}
