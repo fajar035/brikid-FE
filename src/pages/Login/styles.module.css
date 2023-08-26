@@ -214,7 +214,7 @@
 @media screen and (max-width: 768px) {
   .login_form {
     width: 100%;
-    background-image: url(../../assets/img/login-img.svg);
+    background-image: url(../../assets/img/login-img.webp);
     background-size: cover;
     background-repeat: no-repeat;
   }

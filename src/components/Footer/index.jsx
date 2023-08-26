@@ -3,10 +3,17 @@ import logo from "../../assets/icons/logo.svg";
 import IFacebook from "../../assets/icons/iFb.svg";
 import ITwitter from "../../assets/icons/iTwitter.svg";
 import iInstagram from "../../assets/icons/iInstagram.svg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getCategoryAction } from "../../redux/actions/category";
+import { useEffect } from "react";
 
 function index() {
+  const dispatch = useDispatch();
   const category = useSelector((state) => state.category.data);
+
+  useEffect(() => {
+    dispatch(getCategoryAction());
+  }, [dispatch]);
 
   return (
     <section className={styles["footer"]}>

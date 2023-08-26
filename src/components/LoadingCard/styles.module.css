@@ -26,6 +26,12 @@
   }
 }
 
+@media screen and (max-width: 450px) {
+  .skeleton_card {
+    margin: 30px 10px;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .skeleton {
     padding: 50px 0;

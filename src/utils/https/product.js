@@ -1,6 +1,6 @@
 import axios from "axios";
 import { encodeQueryData } from "../helpers/urlParams";
-const BASE = import.meta.env.VITE_APP_HOSTDEPLOY;
+const BASE = import.meta.env.VITE_APP_HOSTLOCAL;
 
 export const getAllProductsApi = (params) => {
   const url = `${BASE}/products?${encodeQueryData(params)}`;

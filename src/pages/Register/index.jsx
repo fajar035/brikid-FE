@@ -1,6 +1,6 @@
 import styles from "../Login/styles.module.css";
 import Footer from "../../components/Footer";
-import loginImg from "../../assets/img/login-img.svg";
+import loginImg from "../../assets/img/login-img.webp";
 import logo from "../../assets/icons/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import useWindowDimensions from "../../utils/hooks/useDimensions";

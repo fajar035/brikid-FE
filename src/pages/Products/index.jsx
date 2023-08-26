@@ -42,6 +42,10 @@ function index() {
     getAllProducts();
   }, [getAllProducts]);
 
+  // useEffect(() => {
+  //   console.log("TOKEN : ", token);
+  // }, [token]);
+
   return (
     <>
       <section className={styles["products"]}>
