@@ -19,6 +19,7 @@ function index() {
   const navigate = useNavigate();
   const handleSelectCategory = (select) => setSelectCategory(select);
   const debounceCategory = useDebounce(selectCategory, 1000);
+  const token = useSelector((state) => state.auth.userData.token);
 
   const getAllProducts = useCallback(async () => {
     setIsLoading(true);
@@ -61,11 +62,13 @@ function index() {
           </div>
         )}
 
-        <div className={styles["wrapper-btn"]}>
-          <button onClick={() => navigate("/product/add-product")}>
-            Add product
-          </button>
-        </div>
+        {token.length !== 0 ? (
+          <div className={styles["wrapper-btn"]}>
+            <button onClick={() => navigate("/product/add-product")}>
+              Add product
+            </button>
+          </div>
+        ) : null}
       </section>
     </>
   );

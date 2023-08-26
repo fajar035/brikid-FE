@@ -37,3 +37,9 @@
   text-align: center;
   color: rgba(106, 64, 41, 1);
 }
+
+@media screen and (max-width: 450px) {
+  .card {
+    margin: 30px 10px;
+  }
+}
