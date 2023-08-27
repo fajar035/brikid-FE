@@ -12,7 +12,6 @@ function index({ category = [], handleSelect, setPage }) {
 
   useEffect(() => {
     handleSelect(menuActive);
-    console.log(menuActive);
   }, [menuActive, handleSelect]);
 
   return (
