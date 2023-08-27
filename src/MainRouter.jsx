@@ -8,6 +8,7 @@ import Profile from "./pages/Profile/";
 import Home from "./pages/Home";
 import DetailProducts from "./pages/DetailProduct";
 import AddProduct from "./pages/AddProduct";
+import ErrorPage from "./pages/ErrorPage";
 
 function MainRouter() {
   return (
@@ -23,6 +24,7 @@ function MainRouter() {
             <Route path="/product/:id" element={<DetailProducts />} />
             <Route path="/product/add-product" element={<AddProduct />} />
           </Route>
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

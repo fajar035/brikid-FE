@@ -1,4 +1,4 @@
-export const numberToRupiah = (bilangan) => {
+export const numberToRupiah = (bilangan = "") => {
   let separator = "";
   let number_string = bilangan;
   if (typeof bilangan === "number") {

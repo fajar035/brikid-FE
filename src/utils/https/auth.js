@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE = import.meta.env.VITE_APP_HOSTLOCAL;
+const BASE = import.meta.env.VITE_APP_HOSTDEPLOY;
 
 export const loginApi = (body) => {
   const url = BASE + "/auth/login";

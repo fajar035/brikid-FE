@@ -26,6 +26,12 @@ p {
   margin-bottom: 0 !important;
 }
 
+button,
+input,
+textarea {
+  outline: none;
+}
+
 body::-webkit-scrollbar {
   width: 0.5em;
 }

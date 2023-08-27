@@ -1,0 +1,72 @@
+.dd-wrapper {
+  width: 45%;
+  height: 100%;
+  transition: 0.3s;
+  border: 1px solid #9f9f9f;
+  border-radius: 10px;
+  /* margin: 20px 0; */
+}
+
+.dd-header {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.btn_header {
+  width: 90%;
+  height: 100%;
+  border: none;
+  background-color: white;
+  text-align: left;
+  padding-left: 30px;
+  /* color: ; */
+}
+
+.dd-list {
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+  overflow: hidden;
+  background-color: white;
+}
+
+.--open {
+  border-radius: 10px;
+  border: 1px solid #9f9f9f;
+  height: 300px;
+  overflow: visible;
+}
+
+.dd-list p {
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  padding-left: 40px;
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.dd-list p:hover {
+  color: var(--color-primary);
+  background-color: #9f9f9f;
+}
+
+.icon-dd {
+  width: 7%;
+  height: 100%;
+  color: #9f9f9f;
+}
+
+@media screen and (max-width: 450px) {
+  .dd-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import CategoryMenu from "../../components/MenuCategory";
 import Card from "../../components/Card";
 import Loading from "../../components/LoadingCard";
+import dataNotFound from "../../assets/img/dataNotFound.webp";
 
 import { getAllProductsApi } from "../../utils/https/product";
 import { useCallback, useEffect, useState } from "react";
@@ -26,6 +27,8 @@ function index() {
     const params = {
       page,
       limit: 5,
+      sort: "desc",
+      order: "id",
       category: debounceCategory,
     };
     try {
@@ -56,7 +59,7 @@ function index() {
         ) : (
           <div className={styles["products_wrapper"]}>
             {products.length === 0 ? (
-              <p>Data not found</p>
+              <img src={dataNotFound} />
             ) : (
               products.length !== 0 &&
               products.map((product, idx) => (

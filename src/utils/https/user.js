@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE = import.meta.env.VITE_APP_HOSTLOCAL;
+const BASE = import.meta.env.VITE_APP_HOSTDEPLOY;
 export const getUserIdApi = (token, id) => {
   const URL = BASE + `/users/${id}`;
   return axios.get(URL, { headers: { "x-access-token": token } });

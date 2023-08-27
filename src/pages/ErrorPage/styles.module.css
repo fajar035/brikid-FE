@@ -1,0 +1,22 @@
+.pageError {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: var(--poppins);
+}
+
+.pageError img {
+  width: 500px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 450px) {
+  .pageError img {
+    width: 100%;
+  }
+}
