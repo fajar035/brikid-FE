@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./styles.module.css";
 import {
   getProductDetailApi,
   updateProductApi,
+  deleteProductApi,
 } from "../../utils/https/product";
 import { useEffect, useRef, useState } from "react";
 import { UilEdit } from "@iconscout/react-unicons";
@@ -13,11 +14,13 @@ import Dropdown from "../../components/DropdownCategory";
 import useWindowDimensions from "../../utils/hooks/useDimensions";
 import { toast } from "react-toastify";
 import loader from "../../assets/icons/loader.svg";
+import Swal from "sweetalert2";
 
 function index() {
   const category = useSelector((state) => state.category.data);
   const token = useSelector((state) => state.auth.userData.token);
   const dimention = useWindowDimensions();
+  const navigate = useNavigate();
   const { width } = dimention;
   const params = useParams();
   const inputRef = useRef();
@@ -27,6 +30,7 @@ function index() {
   const [body, setIsBody] = useState({});
   const [isDropdown, setIsDropdown] = useState(false);
   const [loadingUpdate, setLoadingUpdate] = useState(false);
+  const [loadingDelete, setLoadingDelete] = useState(false);
 
   const getProduct = async (id) => {
     setIsLoading(true);
@@ -89,6 +93,33 @@ function index() {
       ...prevState,
       weight: parseInt(e.target.value),
     }));
+  };
+
+  const handleDeleteProduct = () => {
+    setLoadingDelete(true);
+    Swal.fire({
+      title: `Are you sure you want to delete product ${body.name}?`,
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+    }).then((res) => {
+      if (res.isConfirmed) {
+        deleteProductApi(id, token)
+          .then(() => {
+            setLoadingDelete(false);
+            toast.success(`Successfully deleted  ${body.name}`);
+            navigate("/products");
+          })
+          .catch(() => {
+            setLoadingDelete(false);
+            toast.error(`Failed deleted ${body.name}`);
+          });
+      }
+    });
+  };
+
+  const handleCancelUpdate = () => {
+    setIsEdit(false);
+    getProduct(id);
   };
 
   const handleSaveProduct = () => {
@@ -209,8 +240,7 @@ function index() {
             )}
 
             {isEdit ? (
-              <textarea
-                rows={3}
+              <input
                 defaultValue={body.description}
                 placeholder="Product Description .."
                 id="description"
@@ -267,21 +297,40 @@ function index() {
 
             {token ? (
               !isEdit ? (
-                <button
-                  className={styles["btn_edit"]}
-                  onClick={() => setIsEdit(true)}>
-                  Edit Product
-                </button>
+                <>
+                  <button
+                    className={styles["btn_delete"]}
+                    onClick={handleDeleteProduct}
+                    disabled={loadingDelete ? true : false}>
+                    Delete Product
+                    {loadingDelete ? (
+                      <img src={loader} className={styles.spinner} />
+                    ) : null}
+                  </button>
+                  <button
+                    className={styles["btn_edit"]}
+                    onClick={() => setIsEdit(true)}>
+                    Edit Product
+                  </button>
+                </>
               ) : (
-                <button
-                  className={styles["btn_save"]}
-                  onClick={handleSaveProduct}
-                  disabled={loadingUpdate ? true : false}>
-                  Save change{" "}
-                  {loadingUpdate ? (
-                    <img src={loader} className={styles.spinner} />
-                  ) : null}
-                </button>
+                <>
+                  <button
+                    className={styles["btn_save"]}
+                    onClick={handleSaveProduct}
+                    disabled={loadingUpdate ? true : false}>
+                    Save change{" "}
+                    {loadingUpdate ? (
+                      <img src={loader} className={styles.spinner} />
+                    ) : null}
+                  </button>
+                  <button
+                    className={styles["btn_edit"]}
+                    onClick={handleCancelUpdate}
+                    disabled={loadingUpdate ? true : false}>
+                    Cancel
+                  </button>
+                </>
               )
             ) : null}
           </>

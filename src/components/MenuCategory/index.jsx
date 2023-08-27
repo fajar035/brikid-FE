@@ -2,12 +2,17 @@
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 
-function index({ category = [], handleSelect }) {
+function index({ category = [], handleSelect, setPage }) {
   const [menuActive, setMenuActive] = useState("");
-  const handleMenu = (name) => setMenuActive(name);
+
+  const handleMenu = (name) => {
+    setMenuActive(name);
+    setPage(1);
+  };
 
   useEffect(() => {
     handleSelect(menuActive);
+    console.log(menuActive);
   }, [menuActive, handleSelect]);
 
   return (
