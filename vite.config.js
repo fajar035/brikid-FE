@@ -4,7 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugIn = {
   registerType: "prompt",
-  includeAssests: ["favicon.ico", "apple-touc-icon.png", "masked-icon.svg"],
+  includeAssests: ["favicon.ico", "apple-touch-icon.png", "maskable-icon.svg"],
   manifest: {
     name: "Kelontong Shop",
     short_name: "Kelontong Shop",
