@@ -4,7 +4,7 @@ import {
   getProductDetailApi,
   updateProductApi,
 } from "../../utils/https/product";
-import { useEffect, useRef, useState, ReactComponent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UilEdit } from "@iconscout/react-unicons";
 import Skeleton from "react-loading-skeleton";
 import { numberToRupiah } from "../../utils/helpers/currency";
