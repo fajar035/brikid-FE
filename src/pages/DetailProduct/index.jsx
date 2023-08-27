@@ -114,6 +114,7 @@ function index() {
             toast.error(`Failed deleted ${body.name}`);
           });
       }
+      setLoadingDelete(false);
     });
   };
 
