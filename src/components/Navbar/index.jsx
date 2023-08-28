@@ -75,7 +75,7 @@ function Navbar() {
           </Link>
         </li>
 
-        {token ? (
+        {/* {token ? (
           <>
             <li>
               <Link
@@ -87,7 +87,7 @@ function Navbar() {
               </Link>
             </li>
           </>
-        ) : null}
+        ) : null} */}
         {token ? <NavbarPrivate /> : <NavbarPublic />}
       </ul>
 
