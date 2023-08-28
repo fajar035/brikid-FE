@@ -10,6 +10,7 @@ export const ACTION_STRING = {
   onLoading: "LOADING_ON",
   offLoading: "LOADING_OFF",
   dataCategory: "GET_CATEGORY",
+  search: "SET_SEARCH",
 
   pending: "_PENDING",
   fulfilled: "_FULFILLED",

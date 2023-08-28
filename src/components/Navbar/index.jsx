@@ -1,21 +1,33 @@
 import styles from "./navbar.module.css";
 import logo from "../../assets/icons/logo.svg";
+import ISearch from "../../assets/icons/iSearch.svg";
 import { Squash } from "hamburger-react";
 import NavbarPublic from "./Public";
 import NavbarPrivate from "./Private";
 import { useEffect, useState } from "react";
 import useWindowDimensions from "../../utils/hooks/useDimensions";
-import { useSelector } from "react-redux";
-import { Link, useResolvedPath } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useResolvedPath } from "react-router-dom";
+import { searchAction } from "../../redux/actions/loading";
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const token = useSelector((state) => state.auth.userData.token);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
+  const [search, setSearch] = useState("");
   const { width } = useWindowDimensions();
 
   const resolvePath = useResolvedPath();
   const pathName = resolvePath.pathname;
+
+  const handleClickSearch = () => {
+    setIsSearch(false);
+    dispatch(searchAction(search));
+    navigate("/search", { state: { search } });
+  };
 
   useEffect(() => {
     setIsOpen(false);
@@ -29,6 +41,27 @@ function Navbar() {
       </div>
 
       <ul className={`${styles["menu"]} ${isOpen ? styles.open : ""}`}>
+        <li
+          className={`${styles["wrapper_search"]} ${
+            isSearch ? styles["isSearch--wrapper"] : ""
+          }`}>
+          <input
+            type="text"
+            name="search"
+            placeholder="Search ..."
+            className={`${isSearch ? styles["isSearch--input"] : ""}`}
+            onMouseEnter={() => setIsSearch(true)}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <img
+            src={ISearch}
+            alt="search"
+            width={20}
+            className={styles["icon_search"]}
+            onMouseEnter={() => setIsSearch(true)}
+            onClick={handleClickSearch}
+          />
+        </li>
         <li>
           <Link
             className={`${styles["link"]} ${
@@ -38,6 +71,7 @@ function Navbar() {
             Products
           </Link>
         </li>
+
         {token ? (
           <>
             <li>

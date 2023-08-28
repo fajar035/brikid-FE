@@ -61,6 +61,38 @@
   font-weight: 700;
 }
 
+.wrapper_search {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.wrapper_search input {
+  transition: 0.3s;
+  width: 0;
+  border: none;
+  font-family: var(--poppins);
+}
+
+.icon_search {
+  cursor: pointer;
+}
+
+.isSearch--input {
+  width: 200px !important;
+  transition: 0.3s !important;
+}
+
+.isSearch--wrapper {
+  border: 1px solid black;
+}
+
 @media screen and (max-width: 768px) {
   nav,
   .menu {

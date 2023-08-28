@@ -211,11 +211,34 @@
   margin: 0 20px;
 }
 
+@media screen and (max-width: 450px) {
+  .header {
+    padding: 20px;
+  }
+
+  .form {
+    width: 100%;
+    padding: 60px 20px;
+    padding-bottom: 0;
+  }
+
+  .havent-account p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-signup {
+    width: 90%;
+  }
+
+  .logo_title,
+  .header_title {
+    font-size: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .login_form {
     width: 100%;
-    background-image: url(../../assets/img/login-img.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
   }
 }

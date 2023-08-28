@@ -11,3 +11,10 @@ export const offLoadingAction = () => {
     type: ACTION_STRING.offLoading,
   };
 };
+
+export const searchAction = (search) => {
+  return {
+    type: ACTION_STRING.search,
+    payload: search,
+  };
+};
