@@ -3,20 +3,24 @@ import CategoryMenu from "../../components/MenuCategory";
 import Card from "../../components/Card";
 import Loading from "../../components/LoadingCard";
 import dataNotFound from "../../assets/img/dataNotFound.webp";
+import ISearch from "../../assets/icons/iSearch.svg";
 
 import { getAllProductsApi } from "../../utils/https/product";
 import { useCallback, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "../../utils/hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
 import useWindowDimensions from "../../utils/hooks/useDimensions.js";
+import { searchAction } from "../../redux/actions/loading";
 
 function index() {
   const dimention = useWindowDimensions();
+  const dispatch = useDispatch();
   const { width } = dimention;
   const [selectCategory, setSelectCategory] = useState("");
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const category = useSelector((state) => state.category.data);
@@ -49,13 +53,22 @@ function index() {
     setSelectCategory(select);
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(searchAction(e.target.search.value));
+    navigate("/search");
+  };
+
   useEffect(() => {
     if (width < 500) {
+      setIsSearch(true);
       window.scrollTo({
         top: 0,
         left: 0,
         behavior: "smooth",
       });
+    } else {
+      setIsSearch(false);
     }
   }, [width, page]);
 
@@ -66,6 +79,15 @@ function index() {
   return (
     <>
       <section className={styles["products"]}>
+        {isSearch ? (
+          <div className={styles["wrapper-search"]}>
+            <form className={styles["search"]} onSubmit={handleSearch}>
+              <input type="text" placeholder="Search .." name="search" />
+              <img src={ISearch} alt="search" width={20} />
+            </form>
+          </div>
+        ) : null}
+
         <CategoryMenu
           category={category}
           handleSelect={handleSelectCategory}

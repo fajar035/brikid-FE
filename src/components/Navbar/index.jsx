@@ -11,6 +11,7 @@ import { Link, useNavigate, useResolvedPath } from "react-router-dom";
 import { searchAction } from "../../redux/actions/loading";
 
 function Navbar() {
+  const dimention = useWindowDimensions();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.userData.token);
@@ -18,7 +19,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [search, setSearch] = useState("");
-  const { width } = useWindowDimensions();
+  const { width } = dimention;
 
   const resolvePath = useResolvedPath();
   const pathName = resolvePath.pathname;
@@ -41,27 +42,29 @@ function Navbar() {
       </div>
 
       <ul className={`${styles["menu"]} ${isOpen ? styles.open : ""}`}>
-        <li
-          className={`${styles["wrapper_search"]} ${
-            isSearch ? styles["isSearch--wrapper"] : ""
-          }`}>
-          <input
-            type="text"
-            name="search"
-            placeholder="Search ..."
-            className={`${isSearch ? styles["isSearch--input"] : ""}`}
-            onMouseEnter={() => setIsSearch(true)}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <img
-            src={ISearch}
-            alt="search"
-            width={20}
-            className={styles["icon_search"]}
-            onMouseEnter={() => setIsSearch(true)}
-            onClick={handleClickSearch}
-          />
-        </li>
+        {width >= 768 ? (
+          <li
+            className={`${styles["wrapper_search"]} ${
+              isSearch ? styles["isSearch--wrapper"] : ""
+            }`}>
+            <input
+              type="text"
+              name="search"
+              placeholder="Search ..."
+              className={`${isSearch ? styles["isSearch--input"] : ""}`}
+              onMouseEnter={() => setIsSearch(true)}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <img
+              src={ISearch}
+              alt="search"
+              width={20}
+              className={styles["icon_search"]}
+              onMouseEnter={() => setIsSearch(true)}
+              onClick={handleClickSearch}
+            />
+          </li>
+        ) : null}
         <li>
           <Link
             className={`${styles["link"]} ${

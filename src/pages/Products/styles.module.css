@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .wrapper-btn {
@@ -62,6 +63,38 @@
   font-family: var(--poppins);
   font-weight: 900;
   font-size: 20px;
+}
+
+.wrapper-search {
+  width: 100%;
+  height: fit-content;
+  margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  width: 90%;
+  height: fit-content;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.search input {
+  width: 90%;
+  border: none;
+  font-family: var(--poppins);
+  font-size: 16px;
+  padding: 10px;
+}
+
+.search img {
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 640px) {
